@@ -8,24 +8,34 @@ var getChildrenArray=function(context){
 	return children;
 };
 
-
+var noop=function(){};
 
 var Tabs=React.createClass({
 	propTypes:{
 		defaultTabIndex:React.PropTypes.number,
-		tabNames:React.PropTypes.array.isRequired
+		tabNames:React.PropTypes.array.isRequired,
+		willChange:React.PropTypes.func,
+		didChange:React.PropTypes.func
 	},
 	getDefaultProps:function(){
 		return {
-			defaultTabIndex:0
+			defaultTabIndex:0,
+			willChange:noop,
+			didChange:noop
 		}
 	},
 	getInitialState:function(){
 		return {activeTabIndex:this.props.defaultTabIndex};
 	},
 	_change:function(e){
-		var targetTabIndex=e.target.getAttribute('data-tabindex');
-		this.setState({activeTabIndex:targetTabIndex});
+		var oldActiveTabIndex=this.state.activeTabIndex;
+		var newActiveTabIndex=parseInt(e.target.getAttribute('data-tabindex'));
+
+		this.props.willChange(newActiveTabIndex,oldActiveTabIndex);
+
+		this.setState({activeTabIndex:newActiveTabIndex},function(){
+			this.props.didChange(newActiveTabIndex,oldActiveTabIndex);
+		}.bind(this));
 	},
 	render:function(){
 		var children=getChildrenArray(this);
