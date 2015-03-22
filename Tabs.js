@@ -23,15 +23,26 @@ var Tabs=React.createClass({
 	getInitialState:function(){
 		return {activeTabIndex:this.props.defaultTabIndex};
 	},
+	_change:function(e){
+		var targetTabIndex=e.target.getAttribute('data-tabindex');
+		this.setState({activeTabIndex:targetTabIndex});
+	},
 	render:function(){
 		var children=getChildrenArray(this);
 		var activeTabContent=children[this.state.activeTabIndex];
 	
 		var tabs=this.props.tabNames.map(function(tabName,tabIndex){
-			return <span key={'tab-'+tabIndex}>
-					 {tabName}
-					 </span>
-		});
+			return (
+				<span 
+					key={'tab-'+tabIndex}
+					data-tabindex={tabIndex}
+					onClick={this._change}
+				>
+					{tabName}
+				</span>
+
+					);
+		}.bind(this));
 
 		return (
 			<div>
