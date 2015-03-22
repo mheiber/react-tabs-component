@@ -29,15 +29,23 @@ var Tabs=React.createClass({
 	getInitialState:function(){
 		return {activeTabNum:this.props.defaultTabNum};
 	},
+	setActiveTabNum:function(num,callback){
+		this.setState({activeTabNum:num},callback);
+	},
+	getActiveTabNum:function(){
+		return this.state.activeTabNum;
+	},
 	_change:function(e){
 		var oldActiveTabNum=this.state.activeTabNum;
 		var newActiveTabNum=parseInt(e.target.getAttribute('data-tabnum'));
 
 		this.props.willChange(newActiveTabNum,oldActiveTabNum);
 
-		this.setState({activeTabNum:newActiveTabNum},function(){
+		var callback=function(){
 			this.props.didChange(newActiveTabNum,oldActiveTabNum);
-		}.bind(this));
+		}.bind(this);
+
+		this.setActiveTabNum(newActiveTabNum,callback);
 	},
 	render:function(){
 		var children=getChildrenArray(this);
