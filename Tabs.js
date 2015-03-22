@@ -12,7 +12,8 @@ var getChildrenArray=function(context){
 
 var Tabs=React.createClass({
 	propTypes:{
-		defaultTabIndex:React.PropTypes.number
+		defaultTabIndex:React.PropTypes.number,
+		tabNames:React.PropTypes.array.isRequired
 	},
 	getDefaultProps:function(){
 		return {
@@ -26,9 +27,19 @@ var Tabs=React.createClass({
 		var children=getChildrenArray(this);
 		var activeTabContent=children[this.state.activeTabIndex];
 	
-		return <div>{activeTabContent}</div>
+		var tabs=this.props.tabNames.map(function(tabName,tabIndex){
+			return <span key={'tab-'+tabIndex}>
+					 {tabName}
+					 </span>
+		});
 
+		return (
+			<div>
+			<nav>{tabs}</nav>
+			{activeTabContent}
+			</div>
 
+		);
 	}
 
 });
