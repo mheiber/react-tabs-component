@@ -6,19 +6,18 @@ var React=require('react/addons');
 var TestUtils=React.addons.TestUtils;
 var Simulate=React.addons.TestUtils.Simulate;
 
+
 var getTabs=function(){
 	return TestUtils.renderIntoDocument(
-
 		<Tabs
 			defaultTabNum={1}
 			tabNames={['Tab A','Tab B','Tab C']}
-			classPrefix='test-'
+			classPrefix='tabs-'
 		>
 			<section>Tab A Content</section>
 			<section>Tab B Content</section>
 			<section>Tab C Content</section>
 		</Tabs>
-
 	);
 };
 
@@ -62,12 +61,12 @@ describe('Tabs',function(){
 
 	it("All tabs have className this.props.classPrefix+'tab'",function(){
 
-		var main=getTabs(); //passes prop classPrefix={'test-'}
+		var main=getTabs(); //passes prop classPrefix={'tabs-'}
 		var tabs=TestUtils.scryRenderedDOMComponentsWithTag(main,'span');
 		
 		tabs.forEach(function(tab){
 			var tabNode=tab.getDOMNode();
-			expect(tabNode.className).toContain('test-tab');
+			expect(tabNode.className).toContain('tabs-tab');
 
 		});
 		
@@ -75,23 +74,23 @@ describe('Tabs',function(){
 	
 	it("Active tab has className this.props.classPrefix+'active-tab'",function(){
 
-		var main=getTabs(); //passes prop classPrefix={'test-'}
+		var main=getTabs(); //passes prop classPrefix={'tabs-'}
 
 		var tabs=TestUtils.scryRenderedDOMComponentsWithTag(main,'span');
 		
 		var tabB=TestUtils.scryRenderedDOMComponentsWithTag(main,'span')[1];
 
 		tabBNode=tabB.getDOMNode();
-		expect(tabBNode.className).toContain('test-active-tab');
+		expect(tabBNode.className).toContain('tabs-active-tab');
 	});
 
 	it("Tab container has className this.props.classPrefix+'tab-container'",function(){
 
-		var main=getTabs(); //passes prop classPrefix={'test-'}
+		var main=getTabs(); //passes prop classPrefix={'tabs-'}
 
 		var tabContainer=TestUtils.findRenderedDOMComponentWithTag(main,'nav');
 		var tabContainerNode=tabContainer.getDOMNode();
-		expect(tabContainerNode.className).toContain('test-tab-container');
+		expect(tabContainerNode.className).toContain('tabs-tab-container');
 
 	});
 
