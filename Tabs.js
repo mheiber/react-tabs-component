@@ -15,13 +15,15 @@ var Tabs=React.createClass({
 		defaultTabIndex:React.PropTypes.number,
 		tabNames:React.PropTypes.array.isRequired,
 		willChange:React.PropTypes.func,
-		didChange:React.PropTypes.func
+		didChange:React.PropTypes.func,
+		classPrefix:React.PropTypes.string
 	},
 	getDefaultProps:function(){
 		return {
 			defaultTabIndex:0,
 			willChange:noop,
-			didChange:noop
+			didChange:noop,
+			classPrefix:''
 		}
 	},
 	getInitialState:function(){
@@ -40,11 +42,16 @@ var Tabs=React.createClass({
 	render:function(){
 		var children=getChildrenArray(this);
 		var activeTabContent=children[this.state.activeTabIndex];
-	
+		var classPrefix=this.props.classPrefix;
+		var tabClassName=classPrefix+'tab';
+		var activeTabClassName=tabClassName+' '+classPrefix+'active-tab';
+
 		var tabs=this.props.tabNames.map(function(tabName,tabIndex){
+			var isActive= tabIndex===this.state.activeTabIndex;
 			return (
 				<span 
 					key={'tab-'+tabIndex}
+					className={isActive? activeTabClassName : tabClassName }
 					data-tabindex={tabIndex}
 					onClick={this._change}
 				>
@@ -56,7 +63,7 @@ var Tabs=React.createClass({
 
 		return (
 			<div>
-			<nav>{tabs}</nav>
+			<nav className={classPrefix+'tab-container'}>{tabs}</nav>
 			{activeTabContent}
 			</div>
 
