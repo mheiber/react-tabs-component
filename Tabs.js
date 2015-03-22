@@ -12,7 +12,7 @@ var noop=function(){};
 
 var Tabs=React.createClass({
 	propTypes:{
-		defaultTabIndex:React.PropTypes.number,
+		defaultTabNum:React.PropTypes.number,
 		tabNames:React.PropTypes.array.isRequired,
 		willChange:React.PropTypes.func,
 		didChange:React.PropTypes.func,
@@ -20,39 +20,39 @@ var Tabs=React.createClass({
 	},
 	getDefaultProps:function(){
 		return {
-			defaultTabIndex:0,
+			defaultTabNum:0,
 			willChange:noop,
 			didChange:noop,
 			classPrefix:''
 		}
 	},
 	getInitialState:function(){
-		return {activeTabIndex:this.props.defaultTabIndex};
+		return {activeTabNum:this.props.defaultTabNum};
 	},
 	_change:function(e){
-		var oldActiveTabIndex=this.state.activeTabIndex;
-		var newActiveTabIndex=parseInt(e.target.getAttribute('data-tabindex'));
+		var oldActiveTabNum=this.state.activeTabNum;
+		var newActiveTabNum=parseInt(e.target.getAttribute('data-tabnum'));
 
-		this.props.willChange(newActiveTabIndex,oldActiveTabIndex);
+		this.props.willChange(newActiveTabNum,oldActiveTabNum);
 
-		this.setState({activeTabIndex:newActiveTabIndex},function(){
-			this.props.didChange(newActiveTabIndex,oldActiveTabIndex);
+		this.setState({activeTabNum:newActiveTabNum},function(){
+			this.props.didChange(newActiveTabNum,oldActiveTabNum);
 		}.bind(this));
 	},
 	render:function(){
 		var children=getChildrenArray(this);
-		var activeTabContent=children[this.state.activeTabIndex];
+		var activeTabContent=children[this.state.activeTabNum];
 		var classPrefix=this.props.classPrefix;
 		var tabClassName=classPrefix+'tab';
 		var activeTabClassName=tabClassName+' '+classPrefix+'active-tab';
 
-		var tabs=this.props.tabNames.map(function(tabName,tabIndex){
-			var isActive= tabIndex===this.state.activeTabIndex;
+		var tabs=this.props.tabNames.map(function(tabName,tabNum){
+			var isActive= tabNum===this.state.activeTabNum;
 			return (
 				<span 
-					key={'tab-'+tabIndex}
+					key={'tab-'+tabNum}
 					className={isActive? activeTabClassName : tabClassName }
-					data-tabindex={tabIndex}
+					data-tabnum={tabNum}
 					onClick={this._change}
 				>
 					{tabName}
