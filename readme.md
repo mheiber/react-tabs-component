@@ -32,15 +32,31 @@ renders this HTML:
 
 In the example above, only the content for Tab B displays, since Tab B is the active tab.
 
-## Required Prop ##
+## Installation ##
+
+Use the Common JS Module with [Node](https://nodejs.org/) and either [Browserify](http://browserify.org/) or [WebPack](http://webpack.github.io/). 
+
+1. Install on the command line
+
+`npm install react-tabs-component --save`
+
+2. Require it at the top of a JavaScript file
+
+`require('react-tabs-component')`
+
+> You'll need to [transform the JSX](https://facebook.github.io/react/docs/getting-started.html) in your build process for now.
+
+## API ##
+
+### Required Prop ###
 
 - `tabNames`—array of strings or components that will display in each tab.
 
-## Children ##
+### Children ###
 
-- Each child of the Tabs component will be treated as a content area corresponding to a member of the array passed to `TabNames`. For example, if the first tab is active, then the first child of the Tabs component will display.
+- Each child of the Tabs component will be treated as a content area corresponding to a member of the array passed to `TabNames`. For example, if the first tab is active, then the first child of the Tabs component will render.
 
-## Style-related Props ##
+### Style-related Props ###
 
 - `classPrefix`—a string to add to the beginning of each CSS class used internally by the Tabs component. The default is the empty string (`''`), so if this prop isn't specified, then class names will be used as in the example below:
 
@@ -71,7 +87,7 @@ HTML:
 </div>
 ```
 
-## Callback Props ##
+### Callback Props ###
 
 - `willChange`—fires before the tab changes. 
 - `didChange`—fires after the tab changes.
