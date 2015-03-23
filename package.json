@@ -1,6 +1,6 @@
 {
   "name": "react-tabs-component",
-  "version": "1.0.3",
+  "version": "1.0.5",
   "description": "Tabs Component for React with the simplest API",
   "keywords": [
     "React",
@@ -23,7 +23,8 @@
     ]
   },
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "build": "browserify ./src/Tabs.js -o ./Tabs.js"
   },
   "jest": {
     "rootDir": "./",
@@ -34,8 +35,9 @@
     ]
   },
   "devDependencies": {
-    "jest-cli": "^0.4.0",
-    "react-tools": "^0.13.1"
+    "jest-cli": "0.4.0",
+    "react-tools": "0.13.1",
+    "reactify": "1.1.0"
   },
   "bugs": {
     "url": "https://github.com/mheiber/react-tabs-component/issues"
