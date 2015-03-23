@@ -44,8 +44,6 @@ Use the Common JS Module with [Node](https://nodejs.org/) and either [Browserify
 
 `require('react-tabs-component')`
 
-> You'll need to [transform the JSX](https://facebook.github.io/react/docs/getting-started.html) in your build process for now.
-
 ## API ##
 
 ### Required Prop ###
