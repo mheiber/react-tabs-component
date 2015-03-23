@@ -25,9 +25,8 @@ var Tabs=React.createClass({
 			defaultTabNum:0,
 			willChange:noop,
 			didChange:noop,
-			classPrefix:'',
-			pureRender:false
-		}
+			classPrefix:''
+		};
 	},
 	getInitialState:function(){
 		return {activeTabNum:this.props.defaultTabNum};
@@ -37,11 +36,6 @@ var Tabs=React.createClass({
 	},
 	getActiveTabNum:function(){
 		return this.state.activeTabNum;
-	},
-	shouldComponentUpdate:function(nextProps,nextState){
-		return this.props.pureRender? 
-			React.addons.PureRenderMixin(nextProps,nextState)
-			: true;
 	},
 	_change:function(e){
 		var oldActiveTabNum=this.state.activeTabNum;

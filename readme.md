@@ -102,9 +102,3 @@ var didChange=function(newTabNum,oldTabNum){
 	<section>Tab C Content</section>
 </Tabs>
 ```
-## High-Performance using Pure Rendering ##
-
-`pureRender` prop—Set this to `true` to use `(React.addons.PureRenderMixin)[https://facebook.github.io/react/docs/pure-render-mixin.html]`.
-
-
->Explanation: It's a best practice for the `render` methods of React components to always render identically given the same `props` and `state`. Components like that are "pure" components. If you know your tab content will be pure, you can take advantage of that fact to only trigger a re-render when props or state will change.*[For examples of "impure" components, see this excellent Stack Overflow question.](http://stackoverflow.com/questions/27493598/example-of-impure-component)*
