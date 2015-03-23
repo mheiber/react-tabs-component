@@ -1,6 +1,8 @@
 # react-tabs-component #
 
-Provides tabs for React with a very clean API:
+Provides tabs for React with a very clean API.
+
+This JSX:
 
 ```js
 var Tabs=require('react-tabs-component');
@@ -15,7 +17,7 @@ var Tabs=require('react-tabs-component');
 </Tabs>
 ```
 
-this HTML:
+renders this HTML:
 
 ```html
 <div>

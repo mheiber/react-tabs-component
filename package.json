@@ -2,7 +2,7 @@
   "name": "tabs-component",
   "version": "0.0.0",
   "description": "Tabs Component for React",
-  "repository": "https://github.com/mheiber/tabs-component",
+  "repository": "https://github.com/mheiber/react-tabs-component",
   "main": "example.js",
   "dependencies": {
     "react": "^0.12.0"
