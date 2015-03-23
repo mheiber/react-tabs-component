@@ -1,7 +1,7 @@
 {
-  "name": "tabs-component",
+  "name": "react-tabs-component",
   "version": "1.0.0",
-  "description": "Tabs Component for React",
+  "description": "Tabs Component for React with the simplest API",
   "keywords": ["React","tabs","tab","component"],
   "repository": "https://github.com/mheiber/react-tabs-component",
   "main": "example.js",
