@@ -1,6 +1,6 @@
 # react-tabs-component #
 
-Provides tabs for React with a very clean API.
+Tabs component for React with the simplest API
 
 This JSX:
 
