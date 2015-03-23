@@ -1,9 +1,17 @@
 {
   "name": "react-tabs-component",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Tabs Component for React with the simplest API",
-  "keywords": ["React","tabs","tab","component"],
-  "repository": "https://github.com/mheiber/react-tabs-component",
+  "keywords": [
+    "React",
+    "tabs",
+    "tab",
+    "component"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mheiber/react-tabs-component"
+  },
   "main": "example.js",
   "dependencies": {
     "react": "^0.12.0"
@@ -20,10 +28,21 @@
   "jest": {
     "rootDir": "./",
     "scriptPreprocessor": "./jest-preprocessor.js",
-    "unmockedModulePathPatterns":["react","./node_modules/react/"]
+    "unmockedModulePathPatterns": [
+      "react",
+      "./node_modules/react/"
+    ]
   },
   "devDependencies": {
     "jest-cli": "^0.4.0",
     "react-tools": "^0.13.1"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/mheiber/react-tabs-component/issues"
+  },
+  "homepage": "https://github.com/mheiber/react-tabs-component",
+  "directories": {
+    "example": "examples"
+  },
+  "license": "ISC"
 }
