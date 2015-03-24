@@ -1,6 +1,6 @@
 {
   "name": "react-tabs-component",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Tabs Component for React with the simplest API",
   "keywords": [
     "React",
@@ -23,8 +23,7 @@
     ]
   },
   "scripts": {
-    "test": "jest",
-    "build": "browserify ./src/Tabs.js -o ./Tabs.js"
+    "test": "jest"
   },
   "jest": {
     "rootDir": "./",
