@@ -44,6 +44,10 @@ Use the Common JS Module with [Node](https://nodejs.org/) and either [Browserify
 
 `require('react-tabs-component')`
 
+## Testing ##
+
+`npm test`
+
 ## API ##
 
 ### Required Prop ###
