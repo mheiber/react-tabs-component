@@ -151,6 +151,32 @@ describe('Tabs',function(){
 		expect(didChange).toBeCalledWith(1,1);
 	});
 
+	it('Returning false from within willChange prevents tabs from changing',function(){
+		var willChange=function(){
+			return false;
+		};
+		var didChange=jest.genMockFunction();
+
+		var main=TestUtils.renderIntoDocument(
+			<Tabs
+				defaultTabNum={1}
+				tabNames={['Tab A','Tab B','Tab C']}
+				willChange={willChange}
+				didChange={didChange}
+			>
+				<section>Tab A Content</section>
+				<section>Tab B Content</section>
+				<section>Tab C Content</section>
+			</Tabs>
+		);
+		var tabB=TestUtils.scryRenderedDOMComponentsWithTag(main,'span')[1];
+		Simulate.click(tabB);
+		//var section=TestUtils.findRenderedDOMComponentWithTag(main,'section');
+		//expect(section.getDOMNode().textContent).toEqual('Tab C Content');	
+		expect(didChange).not.toBeCalled();
+	});
+
+
 	it('Exposes `setActiveTabNum(num,callback)` and `getActiveTabNum()` public methods',function(){
 
 		var main=getTabs();

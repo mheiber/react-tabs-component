@@ -39,8 +39,10 @@ var Tabs=React.createClass({
 		var oldActiveTabNum=this.state.activeTabNum;
 		var newActiveTabNum=parseInt(e.target.getAttribute('data-tabnum'));
 
-		this.props.willChange(newActiveTabNum,oldActiveTabNum);
-
+		var allowChange=this.props.willChange(newActiveTabNum,oldActiveTabNum);
+		if (typeof allowChange !== 'undefined' && !allowChange){
+			return;
+		}
 		var callback=function(){
 			this.props.didChange(newActiveTabNum,oldActiveTabNum);
 		}.bind(this);

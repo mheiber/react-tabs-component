@@ -87,7 +87,7 @@ HTML:
 
 ### Callback Props ###
 
-- `willChange`—fires before the tab changes. 
+- `willChange`—fires before the tab changes. Return `false` from `willChange` to prevent the active tab from changing.
 - `didChange`—fires after the tab changes.
 
 In the example below, clicking `Tab C` will produce the following results:
