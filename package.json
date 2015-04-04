@@ -12,7 +12,7 @@
     "type": "git",
     "url": "https://github.com/mheiber/react-tabs-component"
   },
-  "main": "Tabs.js",
+  "main": "lib/Tabs.js",
   "dependencies": {
     "envify": "^3.4.0",
     "react": "^0.12.0",
@@ -36,6 +36,8 @@
     ]
   },
   "devDependencies": {
+    "gulp": "^3.8.11",
+    "gulp-react": "^3.0.1",
     "jest-cli": "0.4.0",
     "react-tools": "0.13.1",
     "reactify": "1.1.0"
